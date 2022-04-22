@@ -3,19 +3,41 @@ package fileClasses;
 import createDeleteWriteFiles.CreateDeleteSvgFIle;
 import createDeleteWriteFiles.WriteToSvg;
 
-public class FullText extends Text{
-    private final Text[] allEnteredBlockText;
+import java.util.ArrayList;
+import java.util.Arrays;
 
+public class FullText extends Text{
+    private ArrayList<Text> allEnteredBlockText;
+
+    public FullText() {
+        super();
+        this.allEnteredBlockText = new ArrayList<>();
+    }
 
     public FullText(Text... textBlock) {
-        this.allEnteredBlockText = textBlock;
+        super();
+        this.allEnteredBlockText = new ArrayList<>(Arrays.asList(textBlock));
         for (Text object: textBlock) {
             for (String str:object.getFullText()) {
                 this.fullText.add(str);
             }
         }
-
     }
+
+    public void addTextBlockTolistOfBlocks(Text textBlock) {
+        this.allEnteredBlockText.add(textBlock);
+    }
+
+    public void rewriteFullTextFrom_allEnteredBlockText() {
+        fullText.removeAll(fullText);
+        for (Text object: allEnteredBlockText) {
+            for (String str:object.getFullText()) {
+                this.fullText.add(str);
+            }
+        }
+    }
+
+
     public void rewriteFullTextToDefaulFromObjects () {
         fullText.removeAll(fullText);
         for (Text object: allEnteredBlockText) {
@@ -31,8 +53,16 @@ public class FullText extends Text{
         }
         else {
             createDeleteSvgFIle.createFile();
+            //Создаем строку из ArrayList
+            StringBuilder builder = new StringBuilder();
+            for (String value : fullText) {
+                builder.append(value);
+            }
+            String text = builder.toString();
+
             //Начинаем запись в файл
-            WriteToSvg writeToSvg = new WriteToSvg(fullFilePath,this.fullText.toString());
+//            WriteToSvg writeToSvg = new WriteToSvg(fullFilePath,this.fullText.toString());
+            WriteToSvg writeToSvg = new WriteToSvg(fullFilePath,text);
             writeToSvg.fileWrite(true);
 
         }

@@ -1,7 +1,6 @@
 package fileClasses;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 
 public abstract class Text {
  protected ArrayList<String> fullText;
@@ -11,7 +10,7 @@ public abstract class Text {
         this.fullText =new ArrayList<>();
     }
 
-    public void addStringToList (String string) {
+    public void addStringToList_fullText(String string) {
         this.fullText.add(string);
     }
 
