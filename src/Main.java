@@ -1,3 +1,4 @@
+import calculateCoordinat.CalculateBlack;
 import fileClasses.*;
 
 import java.io.File;
@@ -15,7 +16,14 @@ public class Main {
 //        textBlackRectangularFile1.addStringToList_fullText(textBlackRectangularFile1.getDefaultText());
         TextBlackRectangularFile_1 textBlackRectangularFile1 =
                 new TextBlackRectangularFile_1();
-        textBlackRectangularFile1.writeFullText( 100, 99 ,5.4 ,15 );
+        CalculateBlack calculateBlack = new CalculateBlack();
+        calculateBlack.setBlackWidth(5.4);
+        calculateBlack.setBlackHeight(15);
+        calculateBlack.calculateBlackX(105.4);
+        calculateBlack.calculateBlackY(115);
+//        textBlackRectangularFile1.writeFullText( 100, 99 ,5.4 ,15 );
+        textBlackRectangularFile1.writeFullText(calculateBlack.getBlackX(), calculateBlack.getBlackY(),
+                calculateBlack.getBlackWidth(), calculateBlack.getBlackHeight());
 
         TextWhiteSlotFile_2 textWhiteSlotFile2 = new TextWhiteSlotFile_2();
         textWhiteSlotFile2.writeFullText(100.38, 102.41,1.05,2.3,100.751,102.039,0.525,102.378,

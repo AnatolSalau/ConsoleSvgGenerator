@@ -20,7 +20,7 @@ public  class CalculateBlack {
 
     public void calculateBlackX(double BlackX) {
 
-        this.blackX = BlackX - blackWidth/2;
+        this.blackX = BlackX - (blackWidth/2);
     }
 
     public void calculateBlackY(double BlackY) {
