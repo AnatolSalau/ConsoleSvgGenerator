@@ -5,6 +5,7 @@ import createDeleteWriteFiles.WriteToSvg;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.lang.StringBuilder;
 
 public class FullText extends Text{
     private ArrayList<Text> allEnteredBlockText;
@@ -45,9 +46,9 @@ public class FullText extends Text{
         }
     }
 
-    public void writeListToFile(String fullFilePath) {
+    public void writeToFile_fullText(String fullPath) {
 //Проверяем есть ли файл, если есть удаляем старый файл
-        CreateDeleteSvgFIle createDeleteSvgFIle = new CreateDeleteSvgFIle(fullFilePath);
+        CreateDeleteSvgFIle createDeleteSvgFIle = new CreateDeleteSvgFIle(fullPath);
         if (createDeleteSvgFIle.checkFileYesNo() == true) {
             createDeleteSvgFIle.deleteFile();
         }
@@ -57,6 +58,31 @@ public class FullText extends Text{
             StringBuilder builder = new StringBuilder();
             for (String value : fullText) {
                 builder.append(value);
+            }
+            String text = builder.toString();
+
+            //Начинаем запись в файл
+//            WriteToSvg writeToSvg = new WriteToSvg(fullFilePath,this.fullText.toString());
+            WriteToSvg writeToSvg = new WriteToSvg(fullPath,text);
+            writeToSvg.fileWrite(true);
+
+        }
+    }
+    public void writeToFile_allEnteredBlockText(String fullFilePath) {
+//Проверяем есть ли файл, если есть удаляем старый файл
+        CreateDeleteSvgFIle createDeleteSvgFIle = new CreateDeleteSvgFIle(fullFilePath);
+        if (createDeleteSvgFIle.checkFileYesNo() == true) {
+            createDeleteSvgFIle.deleteFile();
+        }
+        else {
+            createDeleteSvgFIle.createFile();
+            //Создаем строку из ArrayList
+            StringBuilder builder = new StringBuilder();
+            for (Text text : allEnteredBlockText) {
+                for (String value:text.getFullText()) {
+                    builder.append(value);
+                }
+
             }
             String text = builder.toString();
 

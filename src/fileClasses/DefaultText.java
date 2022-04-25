@@ -44,7 +44,7 @@ public enum DefaultText {
             """),
     WHITE_SLOT_2(2, """
             						<!--RectWhite1 Start -->
-            						<rect class="fil1 str1" transform="matrix
+            						<rect class="fil1" transform="matrix
             						(0.707106 -0.707106 0.707106 0.707106\s
             						100.38
             						102.41

@@ -75,7 +75,7 @@ public class TextWhiteSlotFile_2 extends Text{
         this.fullText.removeAll(fullText);
         addStringToList_fullText("""
                         <!--RectWhite1 Start -->
-                        <rect class="fil1 str1" transform="matrix
+                        <rect class="fil1" transform="matrix
                         (0.707106 -0.707106 0.707106 0.707106
                             
             """);
