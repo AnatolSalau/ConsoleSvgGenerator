@@ -5,30 +5,21 @@ public  class CalculateBlack {
                    blackY,
                    blackWidth,
                    blackHeight;
-    public CalculateBlack() {
-        this.blackX = -1;
-        this.blackY = -1;
-        this.blackWidth = -1;
-        this.blackHeight = -1;
-    }
-    public CalculateBlack(double blackWidth, double blackHeight) {
-        this.blackX = -1;
-        this.blackY = -1;
+
+    public CalculateBlack(double blackWidth, double blackHeight, double startBlackX, double startBlackY) {
+        this.blackX = calculateBlackX(startBlackX,blackWidth);
+        this.blackY = calculateBlackY(startBlackY,blackHeight);
         this.blackWidth = blackWidth;
         this.blackHeight = blackHeight;
     }
 
-    public void calculateBlackX(double BlackX) {
-
-        this.blackX = BlackX - (blackWidth/2);
+    private double calculateBlackX(double startBlackX, double blackWidth) {
+        return (startBlackX - (blackWidth/2));
     }
 
-    public void calculateBlackY(double BlackY) {
-
-        this.blackY = BlackY - blackHeight;
+    private double calculateBlackY(double startBlackY, double blackHeight) {
+        return (startBlackY - blackHeight);
     }
-
-
 
     public double getBlackX() {
         return blackX;
@@ -44,13 +35,5 @@ public  class CalculateBlack {
 
     public double getBlackHeight() {
         return blackHeight;
-    }
-
-    public void setBlackWidth(double blackWidth) {
-        this.blackWidth = blackWidth;
-    }
-
-    public void setBlackHeight(double blackHeight) {
-        this.blackHeight = blackHeight;
     }
 }
