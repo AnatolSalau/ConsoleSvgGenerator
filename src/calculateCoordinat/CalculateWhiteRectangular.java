@@ -61,6 +61,43 @@ public class CalculateWhiteRectangular {
 
     }
 
+    public void reCalculateWhiteRectangular(double blackWidth,
+                                     double blackHeight,
+                                     double startBlackX,
+                                     double startBlackY,
+                                     double gapHorisontal,
+                                     double gapVertical,
+                                     double whiteHeight,
+                                     double whiteWidth
+    ) {
+        //Считаем координаты нижнего и верхнего якоря слева
+        this.anchorLeftTopX = calculateAnchorTopX(blackWidth,startBlackX);
+        this.anchorLeftTopY = calculateAnchorTopY(blackHeight,startBlackY);
+        this.anchorLeftBottomX = calculateAnchorLeftBottomX(blackWidth,startBlackX);
+        this.anchorLeftBottomY = calculateAnchorLeftBottomY(startBlackY);
+
+        //задаем длины отступов от края черного прямоугольника
+        this.gapHorisontal = gapHorisontal;
+        this.gapVertical = gapVertical;
+
+        //считаем координаты левого угла, ширину и высоту прямогольника белого
+        this.whiteX = calculateWhiteX();
+        this.whiteY = calculateWhiteY();
+        this.whiteHeight = whiteHeight;
+        this.whiteWidth = whiteWidth;
+
+        //считаем координаты центра верхнего круга и радиус
+        this.circleOneX = calculateCircleOneX();
+        this.circleOneY = calculateCircleOneY();
+        this.circleOneR = calculateCircleOneR();
+
+        //считаем координаты центра нижнего круга и радиус
+        this.circleTwoX = calculateCircleTwoX();
+        this.circleTwoY = calculateCircleTwoY();
+        this.circleTwoR = calculateCircleTwoR();
+
+    }
+
     private double calculateAnchorTopX (double blackWidth, double startBlackX) {
         return startBlackX - (blackWidth/2);
     }
@@ -102,12 +139,14 @@ public class CalculateWhiteRectangular {
 
     private double calculateCircleTwoX() {
         double shiftX = whiteHeight * MathConst.COS45_SIN45.getVal();
-        return circleOneX + shiftX;
+        double result = circleOneX + shiftX;
+        return result;
     }
 
     private double calculateCircleTwoY() {
         double shiftY = whiteHeight * MathConst.COS45_SIN45.getVal();
-        return whiteY + shiftY;
+        double result = circleOneY + shiftY;
+        return result;
     }
 
     private double calculateCircleTwoR() {
@@ -171,4 +210,6 @@ public class CalculateWhiteRectangular {
     public double getCircleTwoR() {
         return circleTwoR;
     }
+
+
 }
