@@ -4,6 +4,7 @@ package calculateCoordinat;
 import mathConsts.MathConst;
 
 public class CalculateWhiteRectangular {
+    public static int count;
     private double      whiteX,
                         whiteY,
                         whiteWidth,
@@ -62,13 +63,13 @@ public class CalculateWhiteRectangular {
     }
 
     public void reCalculateWhiteRectangular(double blackWidth,
-                                     double blackHeight,
-                                     double startBlackX,
-                                     double startBlackY,
-                                     double gapHorisontal,
-                                     double gapVertical,
-                                     double whiteHeight,
-                                     double whiteWidth
+                                            double blackHeight,
+                                            double startBlackX,
+                                            double startBlackY,
+                                            double gapHorisontal,
+                                            double gapVertical,
+                                            double whiteHeight,
+                                            double whiteWidth
     ) {
         //Считаем координаты нижнего и верхнего якоря слева
         this.anchorLeftTopX = calculateAnchorTopX(blackWidth,startBlackX);
@@ -159,7 +160,7 @@ public class CalculateWhiteRectangular {
 
     @Override
     public String toString() {
-        return "CalculateWhiteLeft{" +
+        return "White rectangular coordinates{" +
                 "whiteX=" + whiteX +
                 ", whiteY=" + whiteY +
                 ", whiteWidth=" + whiteWidth +

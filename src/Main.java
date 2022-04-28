@@ -46,8 +46,8 @@ public class Main {
         textBlackRectangularFile1.writeFullText(calculateBlack.getBlackX(), calculateBlack.getBlackY(),
                 calculateBlack.getBlackWidth(), calculateBlack.getBlackHeight());
 
-//      Создаем белый прямоугольник
-        TextWhiteSlotFile_2 textWhiteSlotFile2 = new TextWhiteSlotFile_2();
+//      Создаем белый прямоугольник #1
+        TextWhiteSlotFile_2 whiteRectangular_1 = new TextWhiteSlotFile_2();
 //        Считаем координаты для белого прямоуголника
         CalculateWhiteRectangular calculateWhiteRectangular = new CalculateWhiteRectangular(
                 blackWidth,
@@ -59,8 +59,10 @@ public class Main {
                 whiteHeight,
                 whiteWidth
         );
-//        Записываем посчитанные координа из объекта в белый прямоугольник
-        textWhiteSlotFile2.reWriteFullText(
+        //       Выводим в консоль координаты  прямоугольника #1
+        calculateWhiteRectangular.printToString();
+//        Записываем посчитанные координа из объекта в белый прямоугольник #1
+        whiteRectangular_1.reWriteFullText(
                 calculateWhiteRectangular.getWhiteX(),
                 calculateWhiteRectangular.getWhiteY(),
                 whiteWidth,
@@ -73,10 +75,10 @@ public class Main {
                 calculateWhiteRectangular.getCircleTwoR()
         );
 
-//        Создаем еще один белый прямоуголник
-        TextWhiteSlotFile_2 textWhiteSlotFile2WithGap = new TextWhiteSlotFile_2();
-//        Считаем для него координаты с добавленным отступом
-        CalculateWhiteRectangular calculateWhiteRectangularWithGap = new CalculateWhiteRectangular(
+//        Создаем второй белый прямоуголник #2
+        TextWhiteSlotFile_2 whiteRectangular_2 = new TextWhiteSlotFile_2();
+//        Считаем для прямоуголника №2 координаты с добавленным отступом
+        calculateWhiteRectangular.reCalculateWhiteRectangular(
                 blackWidth,
                 blackHeight,
                 startBlackX,
@@ -86,19 +88,53 @@ public class Main {
                 whiteHeight,
                 whiteWidth
         );
-        //        Записываем посчитанные координа из объекта в белый прямоугольник
-        textWhiteSlotFile2WithGap.reWriteFullText(
-                calculateWhiteRectangularWithGap.getWhiteX(),
-                calculateWhiteRectangularWithGap.getWhiteY(),
+        //       Выводим в консоль координаты  прямоугольника №2
+        calculateWhiteRectangular.printToString();
+
+        //        Записываем посчитанные координа из объекта в белый прямоугольник #2
+        whiteRectangular_2.reWriteFullText(
+                calculateWhiteRectangular.getWhiteX(),
+                calculateWhiteRectangular.getWhiteY(),
                 whiteWidth,
                 whiteHeight,
-                calculateWhiteRectangularWithGap.getCircleOneX(),
-                calculateWhiteRectangularWithGap.getCircleOneY(),
-                calculateWhiteRectangularWithGap.getCircleOneR(),
-                calculateWhiteRectangularWithGap.getCircleTwoX(),
-                calculateWhiteRectangularWithGap.getCircleTwoY(),
-                calculateWhiteRectangularWithGap.getCircleTwoR()
+                calculateWhiteRectangular.getCircleOneX(),
+                calculateWhiteRectangular.getCircleOneY(),
+                calculateWhiteRectangular.getCircleOneR(),
+                calculateWhiteRectangular.getCircleTwoX(),
+                calculateWhiteRectangular.getCircleTwoY(),
+                calculateWhiteRectangular.getCircleTwoR()
         );
+
+        //        Создаем третий белый прямоуголник #3
+        TextWhiteSlotFile_2 whiteRecnangular_3 = new TextWhiteSlotFile_2();
+//        Считаем для прямоуголника №3 координаты с добавленным отступом
+        calculateWhiteRectangular.reCalculateWhiteRectangular(
+                blackWidth,
+                blackHeight,
+                startBlackX,
+                startBlackY,
+                gapHorisontal + blackWidth/2,
+                gapVertical + gapBetweenWhiteRectangular,
+                whiteHeight,
+                whiteWidth
+        );
+        //       Выводим в консоль координаты  прямоугольника №3
+        calculateWhiteRectangular.printToString();
+
+        //        Записываем посчитанные координа из объекта в белый прямоугольник
+        whiteRecnangular_3.reWriteFullText(
+                calculateWhiteRectangular.getWhiteX(),
+                calculateWhiteRectangular.getWhiteY(),
+                whiteWidth,
+                whiteHeight,
+                calculateWhiteRectangular.getCircleOneX(),
+                calculateWhiteRectangular.getCircleOneY(),
+                calculateWhiteRectangular.getCircleOneR(),
+                calculateWhiteRectangular.getCircleTwoX(),
+                calculateWhiteRectangular.getCircleTwoY(),
+                calculateWhiteRectangular.getCircleTwoR()
+        );
+
 
 //        Создаем Конец файла
 //        Записываем в него текст по умолчанию
@@ -111,18 +147,17 @@ public class Main {
         fullText.addTextBlockTolistOfBlocks(textTopFile0);
 //        Добавляем в него черный прямоуголник
         fullText.addTextBlockTolistOfBlocks(textBlackRectangularFile1);
-//        Добавляем в него нижний белый прямоуголник
-        fullText.addTextBlockTolistOfBlocks(textWhiteSlotFile2);
-//        Добавляем в него второй белый прямоуголник
-        fullText.addTextBlockTolistOfBlocks(textWhiteSlotFile2WithGap);
+//        Добавляем в него  белый прямоуголник #1
+        fullText.addTextBlockTolistOfBlocks(whiteRectangular_1);
+//        Добавляем в него второй белый прямоуголник #2
+        fullText.addTextBlockTolistOfBlocks(whiteRectangular_2);
+        //        Добавляем в него второй белый прямоуголник #3
+        fullText.addTextBlockTolistOfBlocks(whiteRecnangular_3);
 //        Добавляем в него конец файла
         fullText.addTextBlockTolistOfBlocks(textEndFile3);
 
 //        Записываем в файл текст со всех добавленных блоков текста
        fullText.writeToFile_allEnteredBlockText(fullFilePath);
-
-//       Выводим в консоль координаты нижнего прямоугольника
-        calculateWhiteRectangular.printToString();
 
         }
     }
