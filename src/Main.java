@@ -1,5 +1,6 @@
 import calculateCoordinat.CalculateBlack;
 import calculateCoordinat.CalculateWhiteRectangular;
+import calculateCoordinat.CoordinatesGapsSizes;
 import fileClasses.*;
 
 import java.io.File;
@@ -11,21 +12,20 @@ public class Main {
         String fullFilePath = "out" + File.separator +"SVG.svg";
 
 //        Координаты и длины черного прямоуголника
-        double blackWidth = 5.4;
-        double blackHeight = 15;
-        double startBlackX = 102.7;
-        double startBlackY = 115;
+        double blackWidth = CoordinatesGapsSizes.BLACK_WIDTH.getValue();
+        double blackHeight = CoordinatesGapsSizes.BLACK_HEIGHT.getValue();
+        double startBlackX = CoordinatesGapsSizes.BLACK_START_X.getValue();
+        double startBlackY = CoordinatesGapsSizes.BLACK_START_Y.getValue();
 
 //        Длины  и отступы нижнего белого прямоугольника
-        double whiteWidth = 1.05;
-        double whiteHeight = 2;
-        double gapHorisontal = 0.38;
-        double gapVertical =  3;
+        double whiteWidth = CoordinatesGapsSizes.WHITE_WIDTH.getValue();
+        double whiteHeight = CoordinatesGapsSizes.WHITE_HEIGHT.getValue();
+        double gapHorisontal = CoordinatesGapsSizes.GAP_HORISONTAL.getValue();
+        double gapVertical =  CoordinatesGapsSizes.GAP_VERTICAL.getValue();
 
 //        Зазор между белыми прямоуголниками
+        double gapBetweenWhiteRectangular = CoordinatesGapsSizes.GAP_BETWEEN_WHITE_RECTANGULAR.getValue();
 
-        double gapBetweenWhiteRectangular = 3;
-        int quntityLineWhiteRectangular = 3;
 
 //        Создаем Начало файла
 //        Записываем в него текст по умолчанию
@@ -113,7 +113,7 @@ public class Main {
                 blackHeight,
                 startBlackX,
                 startBlackY,
-                gapHorisontal + blackWidth/2,
+                gapHorisontal + blackWidth/2 - gapHorisontal,
                 gapVertical + gapBetweenWhiteRectangular,
                 whiteHeight,
                 whiteWidth
