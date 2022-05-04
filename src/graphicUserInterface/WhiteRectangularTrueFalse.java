@@ -1,6 +1,6 @@
 package graphicUserInterface;
 
-public enum whiteRectangularTrueFalse {
+public enum WhiteRectangularTrueFalse {
     P6 (true)    , P5 (true)  ,
     P7 (true)    , P4 (true)  ,
     P8 (true)    , P3 (true)  ,
@@ -9,15 +9,12 @@ public enum whiteRectangularTrueFalse {
 
     private boolean trueFalse;
 
-    whiteRectangularTrueFalse(boolean trueFalse) {
+    WhiteRectangularTrueFalse(boolean trueFalse) {
         this.trueFalse = trueFalse;
     }
 
-    public boolean isTrueFalse() {
+    public boolean getTrueFalse() {
         return trueFalse;
     }
 
-    public void setTrueFalse(boolean trueFalse) {
-        this.trueFalse = trueFalse;
-    }
 }

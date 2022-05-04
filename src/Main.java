@@ -1,12 +1,15 @@
 import calculateCoordinat.CalculateBlack;
+import calculateCoordinat.CalculateGapHorisontalTwo;
 import calculateCoordinat.CalculateWhiteRectangular;
 import calculateCoordinat.CoordinatesGapsSizes;
 import fileClasses.*;
+import graphicUserInterface.WhiteRectangularTrueFalse;
 
 import java.io.File;
 
 
 public class Main {
+
     public static void main(String[] args) {
 //        Путь к файлу
         String fullFilePath = "out" + File.separator +"SVG.svg";
@@ -25,7 +28,15 @@ public class Main {
 
 //        Зазор между белыми прямоуголниками
         double gapBetweenWhiteRectangular = CoordinatesGapsSizes.GAP_BETWEEN_WHITE_RECTANGULAR.getValue();
-
+//        Cчитаем отсут для правого стобца белых прямоуголников
+        CalculateGapHorisontalTwo calculateGapHorisontalTwo = new CalculateGapHorisontalTwo();
+        double gapHorisontalTwo = calculateGapHorisontalTwo.calculateGapHorisontalTwo_X(
+                 whiteWidth,
+                whiteHeight,
+                blackWidth,
+                startBlackX,
+                gapHorisontal
+        );
 
 //        Создаем Начало файла
 //        Записываем в него текст по умолчанию
@@ -83,8 +94,8 @@ public class Main {
                 blackHeight,
                 startBlackX,
                 startBlackY,
-                gapHorisontal,
-                gapVertical + gapBetweenWhiteRectangular,
+                gapHorisontalTwo,
+                gapVertical + CoordinatesGapsSizes.GAP_BETWEEN_WHITE_RECTANGULAR.getValue(),
                 whiteHeight,
                 whiteWidth
         );
@@ -105,37 +116,6 @@ public class Main {
                 calculateWhiteRectangular.getCircleTwoR()
         );
 
-        //        Создаем третий белый прямоуголник #3
-        TextWhiteSlotFile_2 whiteRecnangular_3 = new TextWhiteSlotFile_2();
-//        Считаем для прямоуголника №3 координаты с добавленным отступом
-        calculateWhiteRectangular.reCalculateWhiteRectangular(
-                blackWidth,
-                blackHeight,
-                startBlackX,
-                startBlackY,
-                gapHorisontal + blackWidth/2 - gapHorisontal,
-                gapVertical + gapBetweenWhiteRectangular,
-                whiteHeight,
-                whiteWidth
-        );
-        //       Выводим в консоль координаты  прямоугольника №3
-        calculateWhiteRectangular.printToString();
-
-        //        Записываем посчитанные координа из объекта в белый прямоугольник
-        whiteRecnangular_3.reWriteFullText(
-                calculateWhiteRectangular.getWhiteX(),
-                calculateWhiteRectangular.getWhiteY(),
-                whiteWidth,
-                whiteHeight,
-                calculateWhiteRectangular.getCircleOneX(),
-                calculateWhiteRectangular.getCircleOneY(),
-                calculateWhiteRectangular.getCircleOneR(),
-                calculateWhiteRectangular.getCircleTwoX(),
-                calculateWhiteRectangular.getCircleTwoY(),
-                calculateWhiteRectangular.getCircleTwoR()
-        );
-
-
 //        Создаем Конец файла
 //        Записываем в него текст по умолчанию
         TextEndFile_3 textEndFile3 = new TextEndFile_3();
@@ -151,13 +131,13 @@ public class Main {
         fullText.addTextBlockTolistOfBlocks(whiteRectangular_1);
 //        Добавляем в него второй белый прямоуголник #2
         fullText.addTextBlockTolistOfBlocks(whiteRectangular_2);
-        //        Добавляем в него второй белый прямоуголник #3
-        fullText.addTextBlockTolistOfBlocks(whiteRecnangular_3);
 //        Добавляем в него конец файла
         fullText.addTextBlockTolistOfBlocks(textEndFile3);
 
 //        Записываем в файл текст со всех добавленных блоков текста
        fullText.writeToFile_allEnteredBlockText(fullFilePath);
+
+        
 
         }
     }
