@@ -1,16 +1,25 @@
-package graphicUserInterface;
+package graphicUserInterface.graphicUserInterface_2_FromConsole;
+
 
 import calculateCoordinat.CalculateBlack;
 import calculateCoordinat.CalculateGapHorisontalTwo;
 import calculateCoordinat.CalculateWhiteRectangular;
 import calculateCoordinat.CoordinatesGapsSizes;
 import fileClasses.*;
+import graphicUserInterface.WhiteRectangularTrueFalse;
 
 import java.io.File;
 
-public class GraphicUserIntreface {
+public class GraphicUserInterface_2_FromConsole {
     public static void main(String[] args) {
-//        Путь к файлу
+
+        GetCodeFromUser getCodeFromUser = new GetCodeFromUser();
+        String str = getCodeFromUser.getStringFromUser();
+
+        ManagerWhiteRectangularTrueFalse managerWhiteRectangularTrueFalse = new ManagerWhiteRectangularTrueFalse();
+        managerWhiteRectangularTrueFalse.setEnumFromString(str);
+
+        //        Путь к файлу
         String fullFilePath = "out" + File.separator +"SVG.svg";
 
 //        Координаты и длины черного прямоуголника
@@ -409,5 +418,7 @@ public class GraphicUserIntreface {
 
 //        Записываем в файл текст со всех добавленных блоков текста
         fullText.writeToFile_allEnteredBlockText(fullFilePath);
+
     }
 }
+

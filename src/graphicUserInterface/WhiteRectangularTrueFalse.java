@@ -17,4 +17,7 @@ public enum WhiteRectangularTrueFalse {
         return trueFalse;
     }
 
+    public void setTrueFalse(boolean trueFalse) {
+        this.trueFalse = trueFalse;
+    }
 }

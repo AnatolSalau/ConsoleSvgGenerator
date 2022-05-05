@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ConsoleSvgGenerator:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ConsoleSvgGenerator_jar</output-path>
+    <root id="archive" name="ConsoleSvgGenerator.jar">
+      <element id="module-output" name="ConsoleSvgGenerator" />
+    </root>
+  </artifact>
+</component>
