@@ -3,7 +3,6 @@ import calculateCoordinat.CalculateGapHorisontalTwo;
 import calculateCoordinat.CalculateWhiteRectangular;
 import calculateCoordinat.CoordinatesGapsSizes;
 import fileClasses.*;
-import graphicUserInterface.WhiteRectangularTrueFalse;
 
 import java.io.File;
 

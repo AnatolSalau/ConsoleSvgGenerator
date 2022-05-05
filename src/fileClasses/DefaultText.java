@@ -24,8 +24,6 @@ public enum DefaultText {
             		  <metadata id="CorelCorpID_1Corel-Layer"/>
             """),
     BLACK_RECTANGULAR_1(1, """
-            		  <!-- x="104" y="17" координаты верхнего левого угла черного основания -->
-            		  <!---RectBlack Start------->
             		  <rect class="fil0 str0" x="
             		  100
             		  " y="
@@ -35,15 +33,10 @@ public enum DefaultText {
             		  " height="
             		  15
             		  "/>
-            		  <!---RectBlack End------->\s
-            				<!---RectWhite Start------->\s
             			  <g id="Rect_inclined_red_x0020__x2014__x0020_03.svg">
             				   <g id="RectWhite">	
-            				   <!-- угл поворота: cos, -sin, sin, cos, x левый верхний угол, y левый верхний угол\s
-            						ширина, длина-->
             """),
     WHITE_SLOT_2(2, """
-            						<!--RectWhite1 Start -->
             						<rect class="fil1" transform="matrix
             						(0.707106 -0.707106 0.707106 0.707106\s
             						100.38
@@ -68,7 +61,6 @@ public enum DefaultText {
             						" r="
             						0.525
             						"/>
-            						<!--RectWhite1 End -->
             """),
     END_FILE_3(3, """
             				   </g>

@@ -11,7 +11,6 @@ public class TextWhiteSlotFile_2 extends Text{
                                ) {
     this();
     addStringToList_fullText("""
-                        <!--RectWhite1 Start -->
                         <rect class="fil1" transform="matrix
                         (0.707106 -0.707106 0.707106 0.707106
                             
@@ -64,8 +63,7 @@ public class TextWhiteSlotFile_2 extends Text{
         addStringToList_fullText(Double.toString(circleTwoR)+"\n");
         addStringToList_fullText("""
       
-						"/>
-						<!--RectWhite1 End -->            
+						"/>         
             """);
     }
     public void reWriteFullText(double whiteX, double whiteY, double whiteWidth, double whiteHeight,
@@ -74,7 +72,6 @@ public class TextWhiteSlotFile_2 extends Text{
     ) {
         this.fullText.removeAll(fullText);
         addStringToList_fullText("""
-                        <!--RectWhite1 Start -->
                         <rect class="fil1" transform="matrix
                         (0.707106 -0.707106 0.707106 0.707106
                             
@@ -127,8 +124,7 @@ public class TextWhiteSlotFile_2 extends Text{
         addStringToList_fullText(Double.toString(circleTwoR)+"\n");
         addStringToList_fullText("""
       
-						"/>
-						<!--RectWhite1 End -->            
+						"/>       
             """);
     }
 }

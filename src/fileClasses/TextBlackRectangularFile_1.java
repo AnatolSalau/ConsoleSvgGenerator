@@ -10,9 +10,7 @@ public class TextBlackRectangularFile_1 extends Text{
     public TextBlackRectangularFile_1(double blackX, double blackY, double blackWidth, double blackHeight) {
         this();
         addStringToList_fullText("""
-                                <!---------Separate------------------------------------------------------------------------------->
-                                          <!-- x="104" y="17" координаты верхнего левого угла черного основания -->
-                                          <!---RectBlack Start------->
+
                                           <rect class="fil0 str0" x="             		  
                                 """);
         addStringToList_fullText(Double.toString(blackX));
@@ -34,12 +32,10 @@ public class TextBlackRectangularFile_1 extends Text{
         addStringToList_fullText("""
                                                                
                                       "/>
-                                      <!---RectBlack End------->\s
-                                            <!---RectWhite Start------->\s
+
                                           <g id="Rect_inclined_red_x0020__x2014__x0020_03.svg">
                                                <g id="RectWhite">	
-                                               <!-- угл поворота: cos, -sin, sin, cos, x левый верхний угол, y левый верхний угол\s
-                                                    ширина, длина-->
+
                                 """);
 
     }
@@ -47,9 +43,6 @@ public class TextBlackRectangularFile_1 extends Text{
     public void writeFullText(double blackX, double blackY, double blackWidth, double blackHeight) {
         fullText.removeAll(fullText);
         addStringToList_fullText("""
-                                <!---------Separate------------------------------------------------------------------------------->
-                                          <!-- x="104" y="17" координаты верхнего левого угла черного основания -->
-                                          <!---RectBlack Start------->
                                           <rect class="fil0 str0" x="             		  
                                 """);
         addStringToList_fullText(Double.toString(blackX));
@@ -71,12 +64,8 @@ public class TextBlackRectangularFile_1 extends Text{
         addStringToList_fullText("""
                                                                
                                       "/>
-                                      <!---RectBlack End------->\s
-                                            <!---RectWhite Start------->\s
                                           <g id="Rect_inclined_red_x0020__x2014__x0020_03.svg">
                                                <g id="RectWhite">	
-                                               <!-- угл поворота: cos, -sin, sin, cos, x левый верхний угол, y левый верхний угол\s
-                                                    ширина, длина-->
                                 """);
     }
 
