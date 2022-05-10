@@ -160,7 +160,7 @@ public class CalculateWhiteRectangular {
 
     @Override
     public String toString() {
-        return "white rectangular coordinates{" +
+        return "\nwhite rectangular coordinates{" +
                 "whiteX=" + whiteX +
                 ", whiteY=" + whiteY +
                 ", whiteWidth=" + whiteWidth +

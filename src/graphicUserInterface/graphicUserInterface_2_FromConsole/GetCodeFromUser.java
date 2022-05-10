@@ -5,17 +5,24 @@ import java.util.Scanner;
 public class GetCodeFromUser {
     Scanner scanner;
 
-    private void openScanner() {
-        scanner = new Scanner(System.in);
+    public GetCodeFromUser() {
+        this.scanner = new Scanner(System.in);
     }
 
-    private void closeScanner() {
+    public void closeScanner() {
         scanner.close();
     }
 
     private boolean checkString(String string) {
         Character zero = '0';
         Character one  =  '1';
+
+        if (string.equals("Y")) {
+            return false;
+        }
+        if (string.equals("y")) {
+            return false;
+        }
 
         if (string.length() !=10) {
             return false;
@@ -33,20 +40,21 @@ public class GetCodeFromUser {
     }
 
     public String getStringFromUser() {
-        openScanner();
         System.out.println("Enter code (10 characters, only 0 and 1)");
         String str = scanner.next();
         if (checkString(str)) {
-            closeScanner();
             System.out.println("Code has been written succesfully");
-            System.out.printf("You entered: %s",str);
+            System.out.printf("You entered: %s\n",str);
             return str;
         }
         else {
-            closeScanner();
-            System.out.println("Code is WRONG!");
+
+            System.out.println("Code is WRONG!\n");
             return null;
         }
     }
 
+    public Scanner getScanner() {
+        return scanner;
+    }
 }

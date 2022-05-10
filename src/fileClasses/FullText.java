@@ -52,7 +52,7 @@ public class FullText extends Text{
         if (createDeleteSvgFIle.checkFileYesNo() == true) {
             createDeleteSvgFIle.deleteFile();
         }
-        else {
+       else {
             createDeleteSvgFIle.createFile();
             //Создаем строку из ArrayList
             StringBuilder builder = new StringBuilder();
